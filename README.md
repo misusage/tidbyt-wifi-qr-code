@@ -13,6 +13,14 @@ If the QR code displays, then by simply scanning the QR code, your phone will jo
 
 This app would be amazing to display in your home, bar, restaurant, and/or shop!
 
-## Credits
+## Limitations
+The current QR Code library used by the Tidbyt only allows for a maximum of 440 bits or 55 bytes to be encoded. Since the WiFi QR syntax uses 18 bytes, including the encryption method, that leaves 37 characters that can be encoded into a useable QR code, shared between the SSID and the WiFi password. This app has a method that checks for this and displays an error if your network cannot be encoded. 
 
+If you get an error and you still want to encode your WiFi network, then you can either do the following:
+1. Shorten your SSID. 
+2. Change your WiFi password. 
+
+These characters in the WiFi password are not compatible yet: `\ ; , " and :`
+
+## Credits
 I was inspired by [@evgeni's](https://github.com/evgeni) qifi project. His app is [here](https://qifi.org/).

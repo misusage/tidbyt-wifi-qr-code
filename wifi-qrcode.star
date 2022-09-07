@@ -21,7 +21,7 @@ def get_schema():
             value = "WEP",
         ),
         schema.Option(
-            display = "WPA/WPA2/WPA3 - Personal ",
+            display = "WPA/WPA2/WPA3 - Personal",
             value = "WPA",
         ),
     ]
