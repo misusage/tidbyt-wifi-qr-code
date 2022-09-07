@@ -58,21 +58,12 @@ def get_schema():
 
 
 def main(config):
-    ssid = config.str("ssid", "\"\"")
-    password = config.str("password", "\"\"")
+    ssid = config.str("ssid", None)
+    password = config.str("password", "")
     encryption = config.get("encryption", "WPA")
 
-    url = "WIFI:T:" + encryption + ";S:" + ssid + ";P:" + password + ";;"
-
-    qifi = qrcode.generate(
-        url = url,
-        size = "large",
-        color = "#fff",
-        background = "#000",
-    )
-
-    return render.Root(
-        child = render.Stack(
+    if (ssid == None):
+        show = render.Stack(
             children = [
                 render.Column(
                     main_align="center",
@@ -82,15 +73,71 @@ def main(config):
                             main_align="space_around",
                             expanded=True,
                             children = [
-                                render.Padding(
-                                    pad = (0, 1, 0, 0),
-                                    child = render.Image(src = qifi),
-                                ),
-                                render.Image(src = WIFI_ICON),
+                                render.WrappedText("WiFi QR"),
                             ],
                         ),
                     ],
                 ),
             ],
-        ),
+        )
+        
+    else:
+        url = "WIFI:T:" + encryption + ";S:" + ssid + ";P:" + password + ";;"
+
+        if (len(url) >= 56):
+            show = render.Stack(
+                children = [
+                    render.Column(
+                        main_align="center",
+                        expanded=True,
+                        children = [
+                            render.Row(
+                                main_align="space_around",
+                                expanded=True,
+                                children = [
+                                    render.Marquee(
+                                        width=64,
+                                        child=render.WrappedText("ERROR: Your network is not compatible."),
+                                        offset_start=32,
+                                        offset_end=32,
+                                    ),
+                                ],
+                            ),
+                        ],
+                    ),
+                ],
+            )
+
+        else:
+            qifi = qrcode.generate(
+                url = url,
+                size = "large",
+                color = "#fff",
+                background = "#000",
+            )
+
+            show = render.Stack(
+                children = [
+                    render.Column(
+                        main_align="center",
+                        expanded=True,
+                        children = [
+                            render.Row(
+                                main_align="space_around",
+                                expanded=True,
+                                children = [
+                                    render.Padding(
+                                        pad = (0, 1, 0, 0),
+                                        child = render.Image(src = qifi),
+                                    ),
+                                    render.Image(src = WIFI_ICON),
+                                ],
+                            ),
+                        ],
+                    ),
+                ],
+            )
+
+    return render.Root(
+        child = show
     )
