@@ -3,6 +3,8 @@ A WiFi QR code app for the Tidbyt.
 
 This app creates a scannable WiFi QR Code. It is not compatible with Enterprise networks. Also, there are display limitations with the Tidbyt and it's QR code library, so not all networks will be able to be encoded.
 
+![WiFi QR Code App for Tidbyt](wifi_qr_code.gif)
+
 There are three things the app will ask you to provide:
 
 1. Your WiFi SSID/Network name.
