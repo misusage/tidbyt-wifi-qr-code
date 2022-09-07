@@ -1,7 +1,7 @@
 # tidbyt-wifi-qr-code
 A WiFi QR code app for the Tidbyt.
 
-This app creates a scannable WiFi QR Code. It is currently not compatible with Enterprise networks as the Android/iPhone implementation is not adopted 100%. Also, there are display limitations with the Tidbyt and it's QR code library, so not all networks will be able to be encoded.
+This app creates a scannable WiFi QR Code. It is currently not compatible with Enterprise networks. Also, there are display limitations with the Tidbyt and it's QR code library, so not all networks will be able to be encoded.
 
 There are three things the app will ask you to provide:
 
@@ -21,6 +21,10 @@ If you get an error and you still want to encode your WiFi network, then you can
 2. Change your WiFi password. 
 
 These characters in the WiFi password are not compatible yet: `\ ; , " and :`
+
+Enterprise networks are not compatible. This is because:
+1. There is no widely accepted standard in Android/iOS for the field names used to encode an enterprise network. 
+2. The bits required to encode an enterprise network will pass the 55 byte limit.
 
 ## Credits
 I was inspired by [@evgeni's](https://github.com/evgeni) qifi project. His app is [here](https://qifi.org/).
