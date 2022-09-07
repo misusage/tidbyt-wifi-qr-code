@@ -27,4 +27,4 @@ Enterprise networks are not compatible. This is because:
 2. The bits required to encode an enterprise network will pass the 55 byte limit.
 
 ## Credits
-I was inspired by [@evgeni's](https://github.com/evgeni) qifi project. His app is [here](https://qifi.org/).
+I was inspired by [@evgeni's](https://github.com/evgeni) (qifi project)[https://github.com/evgeni/qifi]. His app is [here](https://qifi.org/).
