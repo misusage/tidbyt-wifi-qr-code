@@ -1,7 +1,7 @@
 """
-Applet: WiFi QR Code Generator
-Summary: Creates a scannable WiFi QR Code that lets you join a WiFi network.
-Description: This app creates a scannable WiFi QR Code. It is currently not compatible with Enterprise networks as the Android/iPhone implementation is not adopted 100%. Also, there are display limitations with the Tidbyt, so not all networks will be able to be encoded.
+Applet: WiFi QR Code
+Summary: Creates a WiFi QR code
+Description: This app creates a scannable WiFi QR code. It is not compatible with Enterprise networks. Since there are display limitations with the Tidbyt, not all networks will be able to be encoded. Simply scan the QR code and your phone will join the WiFi network.
 Author: misusage
 """
 
