@@ -20,7 +20,7 @@ If you get an error and you still want to encode your WiFi network, then you can
 1. Shorten your SSID. 
 2. Change your WiFi password. 
 
-These characters in the WiFi password are not compatible yet: `\ ; , " and :`
+These characters in the WiFi password are not compatible: `\ ; , " and :`
 
 Enterprise networks are not compatible. This is because:
 1. There is no widely accepted standard in Android/iOS for the field names used to encode an enterprise network. 
