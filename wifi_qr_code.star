@@ -36,7 +36,6 @@ def get_schema():
                 icon = "wifi",
                 default = "",
             ),
-
             schema.Text(
                 id = "password",
                 name = "Password",
@@ -44,7 +43,6 @@ def get_schema():
                 icon = "key",
                 default = "",
             ),
-
             schema.Dropdown(
                 id = "encryption",
                 name = "Authentication Method",
@@ -56,7 +54,6 @@ def get_schema():
         ],
     )
 
-
 def main(config):
     ssid = config.str("ssid", None)
     password = config.str("password", "")
@@ -66,21 +63,24 @@ def main(config):
         show = render.Stack(
             children = [
                 render.Column(
-                    main_align="center",
-                    expanded=True,
+                    main_align = "center",
+                    expanded = True,
                     children = [
                         render.Row(
-                            main_align="space_around",
-                            expanded=True,
+                            main_align = "space_around",
+                            expanded = True,
                             children = [
-                                render.WrappedText("WiFi QR"),
+                                render.WrappedText(
+                                    align = "center",
+                                    content="WiFi QR Code Generator"
+                                ),
                             ],
                         ),
                     ],
                 ),
             ],
         )
-        
+
     else:
         url = "WIFI:T:" + encryption + ";S:" + ssid + ";P:" + password + ";;"
 
@@ -88,18 +88,18 @@ def main(config):
             show = render.Stack(
                 children = [
                     render.Column(
-                        main_align="center",
-                        expanded=True,
+                        main_align = "center",
+                        expanded = True,
                         children = [
                             render.Row(
-                                main_align="space_around",
-                                expanded=True,
+                                main_align = "space_around",
+                                expanded = True,
                                 children = [
                                     render.Marquee(
-                                        width=64,
-                                        child=render.WrappedText("ERROR: Your network is not compatible."),
-                                        offset_start=32,
-                                        offset_end=32,
+                                        width = 64,
+                                        child = render.WrappedText("ERROR: Your network is not compatible."),
+                                        offset_start = 32,
+                                        offset_end = 32,
                                     ),
                                 ],
                             ),
@@ -119,12 +119,12 @@ def main(config):
             show = render.Stack(
                 children = [
                     render.Column(
-                        main_align="center",
-                        expanded=True,
+                        main_align = "center",
+                        expanded = True,
                         children = [
                             render.Row(
-                                main_align="space_around",
-                                expanded=True,
+                                main_align = "space_around",
+                                expanded = True,
                                 children = [
                                     render.Padding(
                                         pad = (0, 1, 0, 0),
@@ -139,5 +139,5 @@ def main(config):
             )
 
     return render.Root(
-        child = show
+        child = show,
     )
